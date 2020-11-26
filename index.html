@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/@shower/material/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>React Native tips</h1>
+    </header>
+
+    <section class="slide">
+        <h2>React Native practical tips</h2>
+        <p class="note">To happy life fronted developers</p>
+    </section>
+
+    <section class="slide">
+        <h2>Structure of files for screens or components</h2>
+        <code>
+            index.js // Component with structure(naming ComponentScreen if it screen)<br />
+            styled.js // Contains all styled components for component or screen
+        </code>
+    </section>
+    <section class="slide">
+        <h2>If you support both platforms</h2>
+        <code>
+            index.js // Component with structure(naming ComponentScreen if it screen)<br />
+            styled.android.js // Contains all styled components for component or screen for android<br />
+            styled.ios.js // Contains all styled components for component or screen for ios<br />
+        </code>
+    </section>
+    <section class="slide">
+        <h2>In garage project right way to import styled components will be:</h2>
+        <code>
+            import * as S from './styled';<br />
+            const Component = ({children}) => (<br />
+            &lt;S.Wrapper&gt;{children}&lt;/S.Wrapper&gt;<br />
+            );
+        </code>
+    </section>
+    <section class="slide">
+        <h2>If we have dynamic properties</h2>
+        <code>
+            import * as S from './styled';<br />
+            const Component = ({children, style}) => (<br />
+            &lt;S.Wrapper style={style}&gt;{children}&lt;/S.Wrapper&gt;<br />
+            );
+        </code>
+    </section>
+    <section class="slide">
+        <h2>In styled</h2>
+        <code>
+            export const Wrapper = styled(Component)`<br />
+                margin-bottom: 22px;<br />
+            `;
+        </code>
+    </section>
+    <section class="slide">
+        <h2>Work with IcoMoon</h2>
+        <code style="font-size: 14px; line-height: 1.1">
+            export const CustomIcon = styled(IcoMoonIcon).attrs((props) => ({<br />
+            name: 'seach',<br />
+            color: props.theme.colors.black,<br />
+            size: 24,<br />
+            }))`<br />
+            margin-bottom: 22px;<br />
+            `;
+        </code>
+    </section>
+    <section class="slide">
+        <h2>For modals(with animation) use react-native-modal</h2>
+        <code>
+            import Modal from 'react-native-modal';<br />
+            export const CustomModal = styled(Modal)`<br />
+            margin-bottom: 22px;<br />
+            `;
+        </code>
+    </section>
+    <section class="slide">
+        <h2>I recommend remove margins and paddings from inputs</h2>
+        <p>
+            Because it have very big difference on ios and android
+        </p>
+    </section>
+    <section class="slide">
+        <h2>For images use react-native-fast-image</h2>
+        <code>
+            import FastImage from 'react-native-fast-image';<br />
+            export const CustomImage = styled(FastImage)`<br />
+            margin-bottom: 22px;<br />
+            `;
+        </code>
+    </section>
+    <section class="slide">
+        <h2>For platform specific part of component</h2>
+        <code>
+            import {Platform} from 'react-native';<br />
+            console.log(Platgorm.OS) // return ios or android<br />
+        </code>
+    </section>
+    <section class="slide">
+        <h2>React native analogue calc function</h2>
+        <code style="font-size: 17px">
+            import {Dimensions} from 'react-native';<br />
+            console.log(Dimensions.get('window').height) // return height<br />
+            console.log(Dimensions.get('window').width) // return width<br />
+        </code>
+    </section>
+    <section class="slide">
+        <h2 style="text-align: center">Questions?)</h2>
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="node_modules/@shower/core/dist/shower.js"></script>
+    <!-- Copyright © 2020 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
